@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -12,11 +13,11 @@ import { About } from './pages/About';
 const Root = () => {
   return <>
     <main>
-      <div className="w-full grid grid-cols-12">
-        <div className="col-span-2 h-screen bg-[#1C1C1C] text-white">
+      <div className="w-full flex">
+        <div className="w-[18%] sticky top-0 left-0 h-screen bg-[#1C1C1C] text-stone-100 border-r border-stone-800">
           <Navbar />
         </div>
-        <div className="col-span-10 bg-[#161616] text-white">
+        <div className="w-[82%] bg-[#161616] text-white">
           <Outlet />
         </div>
       </div>
