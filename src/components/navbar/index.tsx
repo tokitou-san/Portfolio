@@ -61,24 +61,28 @@ export const Navbar = () => {
         <div className="nav-links mt-10">
 
           {/** ----- explore nav ------ */}
-          <div
-            onClick={() => handleTabChange('explore')}
-            className={`explore w-full p-2 pl-3 rounded ${activeTab === 'explore' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-            <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'explore' ? 'opacity-100' : 'opacity-60'}`}>
-              <MdOutlineExplore size={18} style={{ opacity: 0.8 }} />
-              <span className={`text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent`}>Explore</span>
-            </button>
-          </div>
+          <Link to="/">
+            <div
+              onClick={() => handleTabChange('explore')}
+              className={`explore w-full p-2 pl-3 rounded ${activeTab === 'explore' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
+              <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'explore' ? 'opacity-100' : 'opacity-60'}`}>
+                <MdOutlineExplore size={18} style={{ opacity: 0.8 }} />
+                <span className={`text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent`}>Explore</span>
+              </button>
+            </div>
+          </Link>
 
           {/** ----- about me ----- */}
-          <div
-            onClick={() => handleTabChange('aboutme')}
-            className={`aboutme w-full p-2 pl-3 rounded ${activeTab === 'aboutme' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-            <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'aboutme' ? 'opacity-100' : 'opacity-60'}`}>
-              <HiOutlineUserCircle size={18} style={{ opacity: 0.8 }} />
-              <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>About</span>
-            </button>
-          </div>
+          <Link to={'/about'}>
+            <div
+              onClick={() => handleTabChange('aboutme')}
+              className={`aboutme w-full p-2 pl-3 rounded ${activeTab === 'aboutme' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
+              <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'aboutme' ? 'opacity-100' : 'opacity-60'}`}>
+                <HiOutlineUserCircle size={18} style={{ opacity: 0.8 }} />
+                <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>About</span>
+              </button>
+            </div>
+          </Link>
 
           {/** ----- projects ----- */}
           <div
@@ -107,21 +111,6 @@ export const Navbar = () => {
             <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'hireme' ? 'opacity-100' : 'opacity-60'}`}>
               <RiSendPlaneLine size={18} style={{ opacity: 0.8 }} />
               <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Hire me</span>
-            </button>
-          </div>
-        </div>
-
-        {/** ----------------- resourses ----------------- */}
-        <div className="resourses mt-10 pr-4">
-          <h4 className='pl-3 mb-2 uppercase opacity-60 text-xs bg-gradient-to-r bg-clip-text from-white to-black text-transparent'>resourses</h4>
-
-          {/** ----- blog ----- */}
-          <div
-            onClick={() => handleTabChange('blog')}
-            className={`blog w-full p-2 pl-3 rounded ${activeTab === 'blog' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-            <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'blog' ? 'opacity-100' : 'opacity-60'}`}>
-              <HiOutlinePencilAlt size={18} style={{ opacity: 0.8 }} />
-              <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Blog</span>
             </button>
           </div>
         </div>
