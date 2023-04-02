@@ -12,6 +12,7 @@ import { AiOutlineInstagram } from 'react-icons/ai'
 import { RxTwitterLogo } from 'react-icons/rx'
 import { VscGithub } from 'react-icons/vsc'
 import { HiOutlinePencilAlt } from 'react-icons/hi'
+import { navbarItemVariant, navbarSocialItemVarient, navbarVariant } from '../../helpers/animations'
 
 export const Navbar = () => {
   const [roleIndex, setRoleIndex] = useState(0)
@@ -34,14 +35,14 @@ export const Navbar = () => {
     <>
       <nav className='px-6 py-10'>
         {/** --------- profile section ----------- */}
-        <Link to={'/about'} className="profile hover:opacity-80 duration-300">
+        <Link to={'/about'} className="profile">
           <div className="flex gap-3 items-center">
             <img
               src="/favicon.png"
               className='w-10 h-10' alt="Suneeth"
             />
             <div className='flex flex-col'>
-              <h4 className='text-[15px] font-medium bg-gradient-to-r bg-clip-text from-white to-stone-400 text-transparent'>
+              <h4 className='text-[16px] font-medium text-stone-700'>
                 Suneeth. S
               </h4>
               <div className='overflow-hidden'>
@@ -50,7 +51,7 @@ export const Navbar = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 0.5, y: 0 }}
                   ref={(element) => (element = element)}
-                  className='text-[14px] leading-4 opacity-50 bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>
+                  className='text-[14px] leading-4 opacity-50 text-stone-700'>
                   {roles[roleIndex]}
                 </motion.h5>
               </div>
@@ -58,91 +59,122 @@ export const Navbar = () => {
           </div>
         </Link>
         {/** -------------- nav links -------------- */}
-        <div className="nav-links mt-10">
+        <motion.div
+          variants={navbarVariant}
+          initial={'hidden'}
+          animate={'show'}
+          className="nav-links mt-10">
 
           {/** ----- explore nav ------ */}
-          <Link to="/">
-            <div
-              onClick={() => handleTabChange('explore')}
-              className={`explore w-full p-2 pl-3 rounded ${activeTab === 'explore' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-              <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'explore' ? 'opacity-100' : 'opacity-60'}`}>
-                <MdOutlineExplore size={18} style={{ opacity: 0.8 }} />
-                <span className={`text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent`}>Explore</span>
+          <motion.div
+            variants={navbarItemVariant}
+            onClick={() => handleTabChange('explore')}
+            className={`explore w-full p-2 pl-3 rounded-md ${activeTab === 'explore' && ' bg-gradient-to-r from-stone-800 to-stone-700 drop-shadow-md'}`}>
+            <Link to="/">
+              <button className={`w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'explore' ? 'opacity-100' : 'opacity-60'}`}>
+                <MdOutlineExplore size={18} className={`${activeTab === 'explore' ? 'text-white' : 'text-stone-800'}`} />
+                <span className={`text-[14px] font-medium ${activeTab === 'explore' ? 'text-white' : 'text-stone-800'}`}>Explore</span>
               </button>
-            </div>
-          </Link>
+            </Link>
+          </motion.div>
 
           {/** ----- about me ----- */}
-          <Link to={'/about'}>
-            <div
-              onClick={() => handleTabChange('aboutme')}
-              className={`aboutme w-full p-2 pl-3 rounded ${activeTab === 'aboutme' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-              <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'aboutme' ? 'opacity-100' : 'opacity-60'}`}>
-                <HiOutlineUserCircle size={18} style={{ opacity: 0.8 }} />
-                <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>About</span>
+          <motion.div
+            variants={navbarItemVariant}
+            onClick={() => handleTabChange('about')}
+            className={`about w-full p-2 pl-3 rounded-md ${activeTab === 'about' && ' bg-gradient-to-r from-stone-800 to-stone-700 drop-shadow-md'}`}>
+            <Link to="/about">
+              <button className={`w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'about' ? 'opacity-100' : 'opacity-60'}`}>
+                <HiOutlineUserCircle size={18} className={`${activeTab === 'about' ? 'text-white' : 'text-stone-800'}`} />
+                <span className={`text-[14px] font-medium ${activeTab === 'about' ? 'text-white' : 'text-stone-800'}`}>About</span>
               </button>
-            </div>
-          </Link>
+            </Link>
+          </motion.div>
 
           {/** ----- projects ----- */}
-          <div
+          <motion.div
+            variants={navbarItemVariant}
             onClick={() => handleTabChange('projects')}
-            className={`projects w-full p-2 pl-3 rounded ${activeTab === 'projects' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-            <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'projects' ? 'opacity-100' : 'opacity-60'}`}>
-              <AiOutlineProject size={18} style={{ opacity: 0.8 }} />
-              <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Projects</span>
-            </button>
-          </div>
+            className={`projects w-full p-2 pl-3 rounded-md ${activeTab === 'projects' && ' bg-gradient-to-r from-stone-800 to-stone-700 drop-shadow-md'}`}>
+            <Link to="/">
+              <button className={`w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'projects' ? 'opacity-100' : 'opacity-60'}`}>
+                <AiOutlineProject size={18} className={`${activeTab === 'projects' ? 'text-white' : 'text-stone-800'}`} />
+                <span className={`text-[14px] font-medium ${activeTab === 'projects' ? 'text-white' : 'text-stone-800'}`}>Projects</span>
+              </button>
+            </Link>
+          </motion.div>
 
           {/** ----- stack ----- */}
-          <div
+          <motion.div
+            variants={navbarItemVariant}
             onClick={() => handleTabChange('stack')}
-            className={`stack w-full p-2 pl-3 rounded ${activeTab === 'stack' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-            <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'stack' ? 'opacity-100' : 'opacity-60'}`}>
-              <ImStack size={18} style={{ opacity: 0.8 }} />
-              <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Stack</span>
-            </button>
-          </div>
+            className={`stack w-full p-2 pl-3 rounded-md ${activeTab === 'stack' && ' bg-gradient-to-r from-stone-800 to-stone-700 drop-shadow-md'}`}>
+            <Link to="/">
+              <button className={`w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'stack' ? 'opacity-100' : 'opacity-60'}`}>
+                <ImStack size={18} className={`${activeTab === 'stack' ? 'text-white' : 'text-stone-800'}`} />
+                <span className={`text-[14px] font-medium ${activeTab === 'stack' ? 'text-white' : 'text-stone-800'}`}>Stack</span>
+              </button>
+            </Link>
+          </motion.div>
 
           {/** ----- hire me ----- */}
-          <div
-            onClick={() => handleTabChange('hireme')}
-            className={`hireme w-full p-2 pl-3 rounded ${activeTab === 'hireme' && ' bg-[#2B2B2B] ring-1 ring-stone-700 drop-shadow-md'}`}>
-            <button className={`rounded-md w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'hireme' ? 'opacity-100' : 'opacity-60'}`}>
-              <RiSendPlaneLine size={18} style={{ opacity: 0.8 }} />
-              <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Hire me</span>
-            </button>
-          </div>
-        </div>
+          <motion.div
+            variants={navbarItemVariant}
+            onClick={() => handleTabChange('hire')}
+            className={`hire w-full p-2 pl-3 rounded-md ${activeTab === 'hire' && ' bg-gradient-to-r from-stone-800 to-stone-700 drop-shadow-md'}`}>
+            <Link to="/">
+              <button className={`w-full duration-300 flex items-center gap-2 hover:opacity-100 ${activeTab === 'hire' ? 'opacity-100' : 'opacity-60'}`}>
+                <RiSendPlaneLine size={18} className={`${activeTab === 'hire' ? 'text-white' : 'text-stone-800'}`} />
+                <span className={`text-[14px] font-medium ${activeTab === 'hire' ? 'text-white' : 'text-stone-800'}`}>Hire me</span>
+              </button>
+            </Link>
+          </motion.div>
+        </motion.div>
 
         {/** ----------------- social links ----------------- */}
-        <div className="social-links mt-10 pr-4">
-          <h4 className='pl-3 mb-2 uppercase opacity-60 text-xs bg-gradient-to-r bg-clip-text from-white to-black text-transparent'>social</h4>
+        <motion.div
+          variants={navbarVariant}
+          initial={'hidden'}
+          animate={'show'}
+          className="social-links mt-10 pr-4 opacity-60">
+          <h4 className='pl-3 mb-2 uppercase text-xs text-stone-700'>social</h4>
 
           {/** ----- github ----- */}
-          <a href='#' className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-100`}>
-            <VscGithub size={18} style={{ opacity: 0.8 }} />
-            <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Github</span>
-          </a>
+          <motion.a
+            variants={navbarSocialItemVarient}
+            href='#'
+            className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-80`}>
+            <VscGithub size={18} className={'text-stone-800'} />
+            <span className='text-[14px] font-medium text-stone-800'>Github</span>
+          </motion.a>
 
           {/** ----- linked in ----- */}
-          <a href='#' className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-100`}>
-            <CiLinkedin size={18} style={{ opacity: 0.8 }} />
-            <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Linkedin</span>
-          </a>
+          <motion.a
+            variants={navbarSocialItemVarient}
+            href='#'
+            className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-80`}>
+            <CiLinkedin size={18} className={'text-stone-800'} />
+            <span className='text-[14px] font-medium text-stone-800'>Linkedin</span>
+          </motion.a>
 
           {/** ----- gmail ----- */}
-          <a href='#' className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-100`}>
-            <RxTwitterLogo size={18} style={{ opacity: 0.8 }} />
-            <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Twitter</span>
-          </a>
+          <motion.a
+            variants={navbarSocialItemVarient}
+            href='#'
+            className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-80`}>
+            <RxTwitterLogo size={18} className={'text-stone-800'} />
+            <span className='text-[14px] font-medium text-stone-800'>Twitter</span>
+          </motion.a>
 
           {/** ----- instagram ----- */}
-          <a href='#' className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-100`}>
-            <AiOutlineInstagram size={18} style={{ opacity: 0.8 }} />
-            <span className='text-[14px] bg-gradient-to-r bg-clip-text from-white to-stone-300 text-transparent'>Instagram</span>
-          </a>
-        </div>
+          <motion.a
+            variants={navbarSocialItemVarient}
+            href='#'
+            className={`p-2 pl-3 rounded-md w-full duration-300 flex items-center gap-2 opacity-60 hover:opacity-80`}>
+            <AiOutlineInstagram size={18} className={'text-stone-800'} />
+            <span className='text-[14px] font-medium text-stone-800'>Instagram</span>
+          </motion.a>
+        </motion.div>
       </nav>
     </>
   )

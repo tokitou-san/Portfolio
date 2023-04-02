@@ -14,10 +14,10 @@ const Root = () => {
   return <>
     <main>
       <div className="w-full flex">
-        <div className="w-[18%] sticky top-0 left-0 h-screen bg-[#1C1C1C] text-stone-100 border-r border-stone-800">
+        <div className="navbar w-[18%] sticky top-0 left-0 h-screen bg-stone-50 text-stone-100 shadow-xl shadow-stone-300">
           <Navbar />
         </div>
-        <div className="w-[82%] bg-[#161616] text-white">
+        <div className="main-body w-[82%] text-white">
           <Outlet />
         </div>
       </div>

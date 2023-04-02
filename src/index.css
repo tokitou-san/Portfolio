@@ -5,33 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-*{
-  font-family: 'Roboto', sans-serif !important;
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
-/* ------- custom scrollbar -------*/
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #161616;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #434343;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.main-body {
+  background: linear-gradient(to right top, rgb(253, 235, 237), rgb(222, 255, 248));
 }

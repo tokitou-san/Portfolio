@@ -1,6 +1,6 @@
 export const roles = [
   'Fullstack developer',
-  'Backend develoer',
+  'Backend developer',
   'Frontend developer'
 ]
 
@@ -73,7 +73,7 @@ export const stack = [
     id: 2,
     name: 'Next Js.',
     use: 'Making user-friendly interfaces.',
-    iconUrl: 'https://files.raycast.com/4dnlt8m2mcb98bzc4zb8pggc4csi',
+    iconUrl: 'https://static-00.iconduck.com/assets.00/next-js-icon-512x512-zuauazrk.png',
     link: 'https://nextjs.org/',
     regular: true
   },
@@ -81,7 +81,7 @@ export const stack = [
     id: 3,
     name: 'Django Rest Framework.',
     use: 'Making powerful web apis.',
-    iconUrl: 'https://softcover.s3.amazonaws.com/14738/django_book/images/drf.png',
+    iconUrl: 'https://e7.pngegg.com/pngimages/500/498/png-clipart-application-programming-interface-representational-state-transfer-web-api-computer-software-hackathon-api-icon-logo-computer-program-thumbnail.png',
     link: 'https://www.django-rest-framework.org/',
     regular: true
   },
